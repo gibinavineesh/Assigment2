@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jquery Learning</title>
+    <style>
+        .mainhead {
+            text-align: center;
+
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="mainhead" width="100%">
+        <div class="heading">
+            <h2><b>Leave a Comment</b></h2>
+        </div>
+        <form>
+            <table border="0" width="11%" align="center">
+                <tbody>
+                    <tr class="row">
+                        <td align="center">Name:</td>
+                        <td align="left"><input type="text" name="name" class="name"></td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2">
+                            <p class="namecheck" style="color: brown;" align="right">Please enter your name</p>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td align="center">Email:</td>
+                        <td align="left"><input type="text" class="email"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <p class="emailcheck" style="color: brown;" align="right">Please enter your email</p>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td align="center">Comment: </td>
+                        <td align="left"><input type="text" class="comment"></td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2">
+                            <p class="commentcheck" style="color: brown;" align="right">Please add your comments</p>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td colspan="2" align="center"><input type="submit" value="Submit" class="submit"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+        <div>
+            <h3>Comments</h3><br>
+            <div id="display"></div>
+
+        </div>
+    </div>
+</body>
+<script src="js/jquery-3.7.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("p").hide()
+        $(".submit").click(function () {
+
+            var name = $(".name").val()
+            var email = $(".email").val()
+            var comment = $(".comment").val()
+
+            if (name == "") {
+                $("p.namecheck").show()
+                alert("Please enter your name");
+                $(".namecheck").focus();
+            }
+            else {
+                $("p.namecheck").hide()
+            }
+            if (email == "") {
+                $("p.emailcheck").show()
+                alert("Please enter your email");
+            }
+            else {
+                $("p.emailcheck").hide()
+
+            }
+            if (comment == "") {
+                $("p.commentcheck").show()
+                alert("Please add your valid comments");
+            }
+            else {
+                $("p.commentcheck").hide()
+
+            }
+
+            $('#display').html('Name: ' + name + 'Email: ' + email + "<br>" + comment);
+
+        });
+
+
+    });//jquery loading function
+</script>
+
+</html>
